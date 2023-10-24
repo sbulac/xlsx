@@ -16,7 +16,7 @@ const Header = () => {
       }}
     >
       <Typography sx={{ fontSize: 20 }} variant="h1">
-        Registro de Votante
+        Registro de Usuarios
       </Typography>
       <Typography sx={{ fontSize: 20 }} variant="h2">
         Colombia

@@ -25,9 +25,9 @@ function App() {
                   <ComboBox setCategory={setLider} label="Lider" arr={lideres} />
                   <ComboBox setCategory={setNombre} label="Nombre" arr={nombres} />
                   <ComboBoxDisable label="Zona" value={zona} />
-                  <ComboBoxDisable label="Mesa" value={mesa} />
                   <ComboBoxDisable label="Puesto" value={puesto} />
-                  <Button type="Submit" variant="contained">Votar</Button>
+                  <ComboBoxDisable label="Mesa" value={mesa} />
+                  <Button type="Submit" variant="contained">Registrar</Button>
                 </Form>
               </Box>
             </>
