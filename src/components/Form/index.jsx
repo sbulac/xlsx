@@ -1,9 +1,12 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
+import { ApiContext } from "../Context";
 
 const Form = ({ children }) => {
+  const { handleVotarClick } = useContext(ApiContext)
   return (
     <Box
+      onSubmit={(e) => handleVotarClick(e)}
       component="form"
       sx={{
         border: "2px dashed #005BA5",
