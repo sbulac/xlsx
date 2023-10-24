@@ -7,6 +7,7 @@ const ApiProvider = ({ children }) => {
   const url =
     "https://sheet.best/api/sheets/51d49dbd-3154-4da9-803a-ff45411890bd";
 
+  const [open, setOpen] = useState(false);
   const [people, setPeople] = useState([]);
   const [programa, setPrograma] = useState("");
   const [lideres, setLideres] = useState([]);
@@ -91,6 +92,8 @@ const ApiProvider = ({ children }) => {
         puesto,
         mesa,
         handleVotarClick,
+        open,
+        setOpen
       }}
     >
       {children}
