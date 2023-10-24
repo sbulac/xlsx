@@ -1,4 +1,6 @@
+import { Box } from "@mui/material";
 import ComboBox from "./components/ComboBox";
+import ComboBoxDisable from "./components/ComboBoxDisable";
 import { ApiContext, ApiProvider } from "./components/Context";
 import Form from "./components/Form";
 import Header from "./components/Header";
@@ -8,9 +10,10 @@ function App() {
     <>
       <ApiProvider>
         <ApiContext.Consumer>
-          {({ programa, setPrograma, lideres, setLider, nombres, setNombre }) => (
+          {({ programa, setPrograma, lideres, setLider, nombres, setNombre, zona, mesa, puesto }) => (
             <>
               <Header />
+              <Box sx={{display: "flex"}} >
               <Form>
                 <ComboBox
                   setCategory={setPrograma}
@@ -19,11 +22,15 @@ function App() {
                 />
                 <ComboBox setCategory={setLider} label="Lider" arr={lideres} />
                 <ComboBox setCategory={setNombre} label="Nombre" arr={nombres} />
+                <ComboBoxDisable label="Zona" value={zona} />
+                <ComboBoxDisable label="Mesa" value={mesa} />
+                <ComboBoxDisable label="Puesto" value={puesto} />
               </Form>
-            </>
+            </Box>
+        </>
           )}
-        </ApiContext.Consumer>
-      </ApiProvider>
+      </ApiContext.Consumer>
+    </ApiProvider >
     </>
   );
 }

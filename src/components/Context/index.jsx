@@ -13,6 +13,9 @@ const ApiProvider = ({ children }) => {
   const [lider, setLider] = useState("");
   const [nombres, setNombres] = useState([]);
   const [nombre, setNombre] = useState("");
+  const [zona, setZona] = useState("");
+  const [puesto, setPuesto] = useState("");
+  const [mesa, setMesa] = useState("");
 
   useEffect(() => {
     let samePrograma = people.filter((item) => item.Programa === programa);
@@ -20,6 +23,12 @@ const ApiProvider = ({ children }) => {
     let sameLider = people.filter((item) => item.Lider === lider);
     setNombres(sameLider.map((item) => item.Nombre));
 
+    if (!!nombre) {
+      let sameNombre = people.filter(item => item.Nombre === nombre)
+      setZona(sameNombre.map(item => item.Zona))
+      setPuesto(sameNombre.map(item => item.Puesto))
+      setMesa(sameNombre.map(item => item.Mesa))
+    }
     try {
       axios.get(url).then((response) => {
         setPeople(response.data);
@@ -27,7 +36,7 @@ const ApiProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
     }
-  }, [programa, lider]);
+  }, [programa, lider, nombre]);
   return (
     <ApiContext.Provider
       value={{
@@ -39,6 +48,9 @@ const ApiProvider = ({ children }) => {
         setLider,
         nombres,
         setNombre,
+        zona,
+        puesto,
+        mesa
       }}
     >
       {children}
